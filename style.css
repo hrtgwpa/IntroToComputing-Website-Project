@@ -1,0 +1,811 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+    font-family: sans-serif;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+p{
+     color:black;
+        font-size: 1.4rem;
+        margin-top: 5px;
+        line-height: 2.5rem;
+        font-weight: 300;
+        letter-spacing: .05rem;
+}
+.section-title{
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    text-align: center;
+}
+.section-title span {
+    color: green;
+}
+.web h1{
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: white;
+}
+.web h1 span{
+    color: green;
+}
+/* Header Section*/
+#header{
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+#header .header{
+    min-height: 8vh;
+    background-color: rgba(31, 30, 30, 0.24);
+    transition: .3s ease bacground-color;
+}
+#header .navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 0 10px;
+}
+#header .nav-list ul{
+    list-style: none;
+    position: absolute;
+    background-color: #333;
+    width: 100vw;
+    height: 100vh;
+    left:100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s ease left;
+}
+#header .nav-list ul.active{
+    left:0%;
+}
+#header .nav-list ul a{
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 1rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+}
+#header .nav-list ul a::after{
+    content: attr(data-after);
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(240, 248, 255, 0.158);
+    font-size: 10rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: .3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after{
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+}
+#header .nav-list ul li:hover a{
+    color: aquamarine;
+}
+#header .hamburger{
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(.8);
+    margin-right: 20px;
+}
+#header .hamburger::after{
+    position: absolute;
+    content: '';
+    height: 100%;
+    width:100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: hamburger_puls 1s ease infinite;
+}
+#header .hamburger .bar{
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+}
+#header .hamburger .bar::after{
+    top: 8px;
+}
+#header .hamburger .bar::before{
+    bottom: 8px;
+}
+#header .hamburger.active .bar::before{
+    bottom: 0;
+}
+#header .hamburger.active .bar::after{
+    top: 0;
+}
+/* End of Header Section*/
+
+/* First Section*/
+#first {
+    background-image: url(./images/background.jpg);
+    background-size:cover ;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+#first::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .7;
+    z-index: -1;
+}
+#first .first{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    justify-content: flex-start;
+}
+.first h1 {
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1s;
+}
+#first h1:nth-child(1){
+   animation-delay: 1s;
+}
+#first h1:nth-child(2){
+   animation-delay: 2s;
+}
+#first h1:nth-child(3){
+    animation: text_reveal_lline .5s ease forwards;
+   animation-delay: 3s;
+}
+#first h1 span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: aquamarine;
+    animation: text_reveal_box 1s ease;
+    animation-delay:.3s;
+
+}
+#first h1:nth-child(1) span{
+    animation-delay: .5s;
+}
+#first h1:nth-child(2) span{
+    animation-delay: 1.5s;
+}
+#first h1:nth-child(3) span{
+    animation-delay: 2.5s;
+}
+#first .cta{
+    display: inline-block;
+    padding: 10px 30px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid aqua;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    margin-top: 30px;
+    transition: 3s ease;
+    transition-property: background-color, color;
+}
+#first .cta:hover{
+    color: white;
+    background-color: aqua;
+}
+/* End First Section*/
+
+/* Delicacies Section*/
+#delicacies .delicacies{
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+#delicacies .delicacies-top{
+    max-width: 500px;
+    margin: 0 auto;
+
+}
+#delicacies .section-title{
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    text-align: center;
+}
+#delicacies .delicacies-top p{
+    color:black;
+    font-size: 1.4rem;
+    margin: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+    padding: 10px;
+}
+#delicacies .delicacies-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+#delicacies .delicacies-items{
+    flex-basis:80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position:center center;
+    margin: 10px 5%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+#delicacies .delicacies-items:nth-child(1){
+    background-image: url(./images/alupi.jpg);
+}
+#delicacies .delicacies-items:nth-child(2){
+    background-image: url(./images/apan.jpg);
+}
+#delicacies .delicacies-items:nth-child(3){
+    background-image: url(./images/aripahol.jpg);
+}
+#delicacies .delicacies-items:nth-child(4){
+    background-image: url(./images/balbacua.jpg);
+}
+#delicacies .delicacies-items:nth-child(5){
+    background-image: url(./images/batchoy.jpg);
+}
+#delicacies .delicacies-items:nth-child(6){
+    background-image: url(./images/baye\ baye.jpg);
+}
+#delicacies .delicacies-items:nth-child(7){
+    background-image: url(./images/bitso\ bitso.jpg);
+   
+}
+#delicacies .delicacies-items:nth-child(8){
+    background-image: url(./images/bulalo.jpg);
+}
+#delicacies .delicacies-items:nth-child(9){
+    background-image: url(./images/dinakdakan.jpg);
+}
+#delicacies .delicacies-items:nth-child(10){
+    background-image: url(./images/ibos.jpg);
+}
+#delicacies .delicacies-items:nth-child(11){
+    background-image: url(./images/inday.jpg);
+}
+#delicacies .delicacies-items:nth-child(12){
+    background-image: url(./images/inubarang\ manok.jpg);
+}
+#delicacies .delicacies-items:nth-child(13){
+    background-image: url(./images/kbl.jpg);
+}
+#delicacies .delicacies-items:nth-child(14){
+    background-image: url(./images/kokak.jpg);
+}
+#delicacies .delicacies-items:nth-child(15){
+    background-image: url(./images/law\ oy.jpg);
+}
+#delicacies .delicacies-items:nth-child(16){
+    background-image: url(./images/palitaw.jpg);
+}
+#delicacies .delicacies-items:nth-child(17){
+    background-image: url(./images/sinamak.jpg);
+}
+#delicacies .delicacies-items:nth-child(18){
+    background-image: url(./images/suman.jpg);}
+#delicacies .delicacies-items:nth-child(19){
+    background-image: url(./images/sinigang.jpg);
+}
+#delicacies .delicacies-items:nth-child(20){
+    background-image: url(./images/takway.jpg);
+}
+#delicacies .delicacies-items:nth-child(21){
+    background-image: url(./images/valenciana.jpg);
+}
+#delicacies .delicacies-items::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color:black;
+    opacity: .6;
+    z-index: -1;
+}
+.delicacies .delicacies-bottom .icon{
+    height: 80px;
+    width: 80px;
+    margin-bottom: 20px;
+}
+.delicacies .delicacies-bottom .icon .img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+#delicacies .delicacies-items h2{
+    font-size: 2rem;
+    color: papayawhip;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+#delicacies .delicacies-items p{
+    color: antiquewhite;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+}
+
+
+/* End Delicacies Section*/
+/* Eating Places Section*/
+#eatp .eatp{
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+#eatp {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#eatp .eatp-header h1 {
+    margin-bottom: 50px;
+}
+
+#eatp .all-eatp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#eatp .eatp-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#eatp .eatp-info {
+    padding: 30px;
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(148, 220, 196);
+    color: white;
+}
+
+#eatp .eatp-info h1 {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+#eatp .eatp-info p {
+    font-weight: 500;
+}
+
+#eatp .eatp-img {
+    display: flex;
+    position: relative;
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+#eatp .eatp-img::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.4;
+    z-index: 1;
+    
+}
+
+#eatp .eatp-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    z-index: 2;
+    
+}
+
+#eatp .eatp-items:hover .eatp-img img {
+    transform: scale(1.5);
+}
+#video h1{
+    text-align: center;
+}
+.vidwrapper{
+    
+    margin-right: 10px;
+    width: 100%;
+    max-width: 800px;
+    margin: 3em auto;
+    border: 5px solid green;
+}
+.vidcontainer{
+    width: 100%;
+    max-width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    border: 5px solid aquamarine ;
+    position: relative;
+}
+.vidcontainer iframe, .vidcontainer video{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* End Eating Places Section*/
+
+/* About Us Section */
+#about .about {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+  }
+  #about .col-right {
+    flex: 1; 
+    padding-left: 20px; 
+  }
+  
+  #about .col-right h2 {
+    font-size: 1.5rem;
+    font-weight: bold; 
+    letter-spacing: 0.2rem; 
+    margin-bottom: 10px;
+  }
+  
+  #about .col-right p {
+    margin-bottom: 20px;
+  }
+  
+  /* End About Us Section */
+  /*Contact Us Section*/
+#contact .contact{
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+#contact {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#contact .contact-header h1 {
+    margin-bottom: 50px;
+}
+#contact .contact-header p{
+    color:black;
+    font-size: 1.4rem;
+    margin: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+    padding: 10px;
+    text-align: center;
+}
+.paraMaCenter {
+    display: flex;
+    justify-content: center;
+}
+.contact-container2{
+    width: 90%;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+.contact-container2 label {
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+}
+.contact-container2 input {
+    width: 300px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid #0B0B0B;
+    box-sizing: border-box;
+}
+::placeholder {
+    text-align: center;
+}
+.contact-container2 .contact-subcontainer2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px #0b0b0b42;
+    padding: 40px 20px;
+    border-radius: 20px;
+    max-width: 100%;
+}
+.contact-container2 .contact-subcontainer2 #message{
+    height: 100px;
+
+}
+.contact-container2 .contact-subcontainer2 #submit{
+    width: 100px;
+    height: fit-content;
+    display: block;
+    padding: 13px 25px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #0b0b0b00;
+}
+.contact-container2 .contact-subcontainer2 #submit:hover{
+    background-color: #0B0B0B;
+    color: #fff;
+}
+  /*End of Contact Us Section*/
+  
+  /* Footer */
+  #footer {
+    background-color: #333; 
+    color: white; 
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  #footer .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+  }
+  
+  #footer h2 {
+    font-weight: 600; 
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    margin-top: 20px; 
+    margin-bottom: 20px;
+  }
+  #footer p{
+    color: white;
+  }
+  
+  /* End of Footer */
+  
+/* keyframes*/
+@keyframes hamburger_puls{
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+@keyframes text_reveal_box{
+    50%{
+        width: 100%;
+        left: 0;
+    }
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
+@keyframes text_reveal{
+        100%{
+            color: white;
+        }
+}
+@keyframes text_reveal_lline{
+    100%{
+        color: aquamarine;
+        font-weight: 500px;
+    }
+}
+/*end keyframes*/
+
+/* media query for tablet*/
+@media only screen and (min-width: 768px){
+    .cta{
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+    h1.section-title{
+        font-size: 6rem;
+    }
+    /* Home*/
+    #first h1{
+        font-size: 6rem;
+    }
+    /*End Home*/
+
+    /*Delicacies*/
+        #delicacies .delicacies-bottom .delicacies-items{
+            flex-basis: 45%;
+            margin: 2.5%;
+            height: 300px;
+            width: 300px;
+        }
+        #delicacies h1.section-title{
+            font-size: 6rem;
+        }
+    /*End of Delicacies*/
+    /*Eating Places*/
+       #eatp .eatp-items{
+        flex-direction: row;
+       }
+       #eatp .eatp-items:nth-child(even){
+        flex-direction: row-reverse;
+       }
+       #eatp .all-eatp .eatp-info{
+        height: 500px;
+        width: 40%;
+       }
+       #eatp .all-eatp .eatp-img{
+        height: 500px;
+        width: 60%;
+       }
+
+    /*End of Eating Places*/
+    /*About*/
+    #about .col-right h2{
+        font-size: 2rem;
+    }
+    #video {
+        flex-basis: 45%;
+        margin: 2.5%;
+        height: 300px;
+        width: 300px;
+    }
+    /*End of About*/
+    .contact-container2 input {
+        width: 550px;}
+    .contact-container2 .contact-subcontainer2 {
+            width: 650px;
+            }
+}
+/* end media query for tablet*/
+/* media query for desktop*/
+@media only screen and (min-width:1200px){
+    /*header*/
+    #header .hamburger{
+        display: none;
+    }
+    #header .nav-list ul{
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+    #header .nav-list ul li{
+        display: inline-block;
+    }
+    #header .nav-list ul li a{
+        font-size: 1.5rem;
+        letter-spacing: 0;
+    }
+    #header .nav-list ul a::after{
+        display: none;
+    }
+    /*end of header*/
+    #delicacies .delicacies-bottom .delicacies-items{
+        flex-basis: 22%;
+        margin: 1.5%; 
+        height: 400px;
+        width: 400px;
+    }
+    .contact-container2 input {
+        width: 1000px;}
+    .contact-container2 .contact-subcontainer2 {
+        width: 1200px;
+        }
+
+}
+/* end media query for desktop*/
